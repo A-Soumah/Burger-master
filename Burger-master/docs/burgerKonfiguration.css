@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+    margin: auto;
+    background-image: url("../the-burger-lab-swep-main/images2/burgerkonfiguration-hintergrund.png");;
+}
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-weight: bold;
+}
+.price-display {
+    font-size: 1.2em;
+    margin-top: 20px;
+    font-weight: bold;
+}
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+}
+#headerUndParagrafText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+}
+.headerText h1 {
+    font-size: 2rem;
+}
+.paragrafText p{
+    font-size: 1.2rem;
+}
+#burgerForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#ingredient-group-topAndBottom-container{
+    display: flex;
+    flex-direction: column;
+
+}
+#ingredient-group-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+#ingredient-group-bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.ingredient-group{
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    width: 260px; /* oder 100% bei kleinerem Viewport */
+    margin-right: 1rem; /* Abstand zwischen den Spalten */
+    margin-bottom: 1rem;
+    height: 300px;
+    position: relative;
+    padding-top: 2.5rem;
+    position: relative;
+}
+.ingredient-group-title{
+    background-color: #344E41;
+
+    color: #D9D9D9;
+    width: 170px;
+    padding: 15px 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    ;
+    /* Zentriert die Box */
+}
+.ingredient-group-inhalt{
+    margin-top: 20px;
+}

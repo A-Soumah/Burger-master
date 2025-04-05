@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bürgerSeite2styles.css">
+    <script src="https://kit.fontawesome.com/07fa2949b9.js" crossorigin="anonymous"></script>
+    <title>The Burger Lab</title>
+</head>
+<body>
+<div class="obere-Hälfte">
+    <div class="nav">
+        <div class="logo">
+            <a href="/">
+                <img src="../the-burger-lab-swep-main/images2/logo-light.png" alt="The Burger Lab">
+            </a>
+        </div>
+        <div class="burger-menu" >
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="navbar ">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="index.html">Menü</a></li>
+                <li><a href="burgerKonfiguration.html">Burger konfigurieren</a></li>
+                <li><a href="aboutUs.html">Über uns</a></li>
+                <li class="user-menu">
+                    <i class="fa-regular fa-circle-user"></i>
+                    <div class="dropdown">
+                        <p class="anmeldeParagraf">Anmelden</p>
+                        <p class="abmeldeParagraf">Abmelden</p>
+                        <p class="bestellhistorielink"><a href="bestellhistorie.html" target="_blank">Bestellhistorie</a></p>
+                    </div>
+                </li>
+                <li><i class="fa-solid fa-user-plus"></i></li>
+                <li><a href="einkaufswagen.html" target="_blank"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+        <div class="sidebar ">
+            <div class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="menu.html">Menü</a></li>
+                <li><a href="createYourOwn.html">Konfigurieren</a></li>
+                <li><a href="aboutUs.html">Über uns</a></li>
+                <li><a href="login.html"><i class="fa-regular fa-circle-user"></i></a></li>
+                <li><i class="fa-solid fa-user-plus"></i></li>
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="flexBox-oberhälfte-linkeSeite-rechteSeite">
+        <div class="obere-Hälfte-linkeSeite">
+            <div class="headerText">
+                <h2>Herzlich willkommen bei</h2>
+                <h1>The<br>Burger<br>Lab</h1>
+            </div>
+            <div class="paragrafText">
+                <p>
+                    Wähle einen Unserer<br> für dich ausgewählten<br> Burger-Kreationen -<br> Frisch, lecker und<br>
+                    Einzigartig!
+                </p>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Registrieren</h2>
+                    <div class="close-btn">
+                        <i id="formclosebutton" class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <form id="registerForm">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+
+
+                    <button type="submit">Registrieren</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="anmeldeModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Anmelden</h2>
+                    <div class="close-btn">
+                        <i id="anmeldeFormCloseButton" class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <form id="anmelderegisterForm">
+                    <label for="anmeldeUsername">Username</label>
+                    <input type="text" id="anmeldeUsername" name="username">
+
+
+                    <label for="anmeldePassword">Password</label>
+                    <input type="password" id="anmeldePassword" name="password">
+
+                    <button type="submit">Anmelden</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="obereHälfte-rechteSeite" >
+            <div class="BürgerReihe">
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>HAMBURGER</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>CHEESEBURGER</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>CHICKENBURGER</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+            </div>
+            <div class="BürgerReihe">
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>BBQ-BURGER</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>AVOCADO-SMASH</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+                <div class="BürgerReihe-Komponente">
+                    <img src="../the-burger-lab-swep-main/images2/Bürger.png">
+                    <h2>GEMÜSEBÜRGER</h2>
+                    <button class="button-Komponente">Hinzufügen</button>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div>
+    <div class="content">
+        <h2>Unsere Burger</h2>
+        <div class="burger">
+            <div class="burgerImage">
+                <img src="images2/burger1.jpg" alt="Burger 1">
+            </div>
+            <div class="burgerText">
+                <h3>Burger 1</h3>
+                <p>Ein Burger mit Fleisch, Käse, Salat, Tomaten und Zwiebeln.</p>
+                <a href="menu.html">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="burger">
+            <div class="burgerImage">
+                <img src="images2/burger2.jpg" alt="Burger 2">
+            </div>
+            <div class="burgerText">
+                <h3>Burger 2</h3>
+                <p>Ein Burger mit Fleisch, Käse, Salat, Tomaten und Zwiebeln.</p>
+                <a href="menu.html">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="burger">
+            <div class="burgerImage">
+                <img src="images2/burger3.jpg" alt="Burger 3">
+            </div>
+            <div class="burgerText">
+                <h3>Burger 3</h3>
+                <p>Ein Burger mit Fleisch, Käse, Salat, Tomaten und Zwiebeln.</p>
+                <a href="menu.html">Mehr erfahren</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footerContent">
+        <div class="footerColumn">
+            <h3>Über uns</h3>
+            <p>Wir sind ein Burger-Restaurant, das sich auf die Herstellung von hochwertigen Burgern spezialisiert hat.</p>
+        </div>
+        <div class="footerColumn">
+            <h3>Öffnungszeiten</h3>
+            <p>Montag - Freitag: 11:00 - 22:00 Uhr</p>
+            <p>Samstag - Sonntag: 11:00 - 23:00 Uhr</p>
+        </div>
+        <div class="footerColumn">
+            <h3>Kontakt</h3>
+            <p>Telefon: 0123 456789</p>
+            <p>Email:</p>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="index.js"></script>
+<script src="registrieren.js"></script>
+<script src="anmelden.js" ></script>
+<script src="../the-burger-lab-swep-main/burger-app/server.js"></script>
+
+</body>
+</html>

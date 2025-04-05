@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Burger Konfigurator</title>
+    <link rel="stylesheet" href="bürgerSeite2styles.css">
+    <link rel="stylesheet" href="burgerKonfiguration.css">
+    <script src="https://kit.fontawesome.com/07fa2949b9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="nav">
+    <div class="logo">
+        <a href="/">
+            <img src="../the-burger-lab-swep-main/images2/logo-light.png" alt="The Burger Lab">
+        </a>
+    </div>
+    <div class="burger-menu" >
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="navbar ">
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html">Menü</a></li>
+            <li><a href="burgerKonfiguration.html">Burger konfigurieren</a></li>
+            <li><a href="aboutUs.html">Über uns</a></li>
+            <li class="user-menu">
+                <i class="fa-regular fa-circle-user"></i>
+                <div class="dropdown">
+                    <p class="anmeldeParagraf">Anmelden</p>
+                    <p class="abmeldeParagraf">Abmelden</p>
+                    <p class="bestellhistorielink"><a href="bestellhistorie.html" target="_blank">Bestellhistorie</a></p>
+                </div>
+            </li>
+            <li><i class="fa-solid fa-user-plus"></i></li>
+            <li><a href="einkaufswagen.html" target="_blank"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+    </div>
+    <div class="sidebar ">
+        <div class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="index.html.html">Menü</a></li>
+            <li><a href="burgerKonfiguration.html">Konfigurieren</a></li>
+            <li><a href="aboutUs.html">Über uns</a></li>
+            <li><a href="login.html"><i class="fa-regular fa-circle-user"></i></a></li>
+            <li><i class="fa-solid fa-user-plus"></i></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+    </div>
+</div>
+<div id="headerUndParagrafText">
+    <div class="headerText">
+        <h1>Kreiere hier deinen einzigartigen Burger!</h1>
+    </div>
+    <div class="paragrafText">
+        <p>
+            Wähle Schritt für Schritt die Zutaten für deinen<br> perfekten Burger. Wir berechnen den Preis<br> automatisch – du brauchst nur kreativ zu sein!
+        </p>
+    </div>
+</div>
+
+
+
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Registrieren</h2>
+            <div class="close-btn">
+                <i id="formclosebutton" class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <form id="registerForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+
+
+            <button type="submit">Registrieren</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="anmeldeModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Anmelden</h2>
+            <div class="close-btn">
+                <i id="anmeldeFormCloseButton" class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <form id="anmelderegisterForm">
+            <label for="anmeldeUsername">Username</label>
+            <input type="text" id="anmeldeUsername" name="username">
+
+
+            <label for="anmeldePassword">Password</label>
+            <input type="password" id="anmeldePassword" name="password">
+
+            <button type="submit">Anmelden</button>
+        </form>
+    </div>
+</div>
+
+
+<form id="burgerForm">
+
+    <!-- Brot -->
+    <div id="ingredient-group-topAndBottom-container">
+        <div id="ingredient-group-top">
+            <!-- Patty -->
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>1. Brot </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="radio" name="brot" value="1.00"> Brioche (1,00 €)</label><br>
+                    <label><input type="radio" name="brot" value="1.20"> Sesam (1,20 €)</label><br>
+                    <label><input type="radio" name="brot" value="1.50"> Vollkorn (1,50 €)</label><br>
+                    <label><input type="radio" name="brot" value="1.60"> Dinkel (1,60 €)</label><br>
+                    <label><input type="radio" name="brot" value="1.80"> Low-Carb (1,80 €)</label>
+                </div>
+
+            </div>
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>2. Patty </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="radio" name="patty" value="2.50"> Rind (2,50 €)</label><br>
+                    <label><input type="radio" name="patty" value="2.00"> Hähnchen (2,00 €)</label><br>
+                    <label><input type="radio" name="patty" value="1.80"> Gemüsepatty (1,80 €)</label><br>
+                    <label><input type="radio" name="patty" value="1.90"> Soja-Patty (1,90 €)</label>
+                </div>
+
+            </div>
+
+            <!-- Toppings -->
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>3. Toppings </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="checkbox" name="topping[]" value="0.50"> Kopfsalat (0,50 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="0.50"> Rucola (0,50 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="0.60"> Tomaten (0,60 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="0.70"> Zwiebeln (0,70 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="0.60"> Gurken (0,60 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="1.00"> Avocado (1,00 €)</label><br>
+                    <label><input type="checkbox" name="topping[]" value="0.80"> Jalapeños (0,80 €)</label>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="ingredient-group-bottom">
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>4. Saucen </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="checkbox" name="sauce[]" value="0.40"> Joppie-Sauce (0,40 €)</label><br>
+                    <label><input type="checkbox" name="sauce[]" value="0.30"> BBQ-Sauce (0,30 €)</label><br>
+                    <label><input type="checkbox" name="sauce[]" value="0.30"> Chili-Sauce (0,30 €)</label><br>
+                    <label><input type="checkbox" name="sauce[]" value="0.40"> Limettenmayo (0,40 €)</label><br>
+                    <label><input type="checkbox" name="sauce[]" value="0.35"> Honig-Senf (0,35 €)</label><br>
+                    <label><input type="checkbox" name="sauce[]" value="1.00"> Smashed-Avocado (1,00 €)</label>
+                </div>
+
+            </div>
+
+            <!-- Extras -->
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>5. Extras </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="checkbox" name="extra[]" value="1.20"> Bacon (1,20 €)</label><br>
+                    <label><input type="checkbox" name="extra[]" value="1.00"> Zwiebelringe (1,00 €)</label><br>
+                    <label><input type="checkbox" name="extra[]" value="0.90"> Nacho-Chips (0,90 €)</label><br>
+                    <label><input type="checkbox" name="extra[]" value="1.00"> Spiegelei (1,00 €)</label>
+                </div>
+
+            </div>
+
+            <!-- Beilagen -->
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>6. Beilagen </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="checkbox" name="side[]" value="2.00"> Fries (2,00 €)</label><br>
+                    <label><input type="checkbox" name="side[]" value="2.20"> Potatowedges (2,20 €)</label><br>
+                    <label><input type="checkbox" name="side[]" value="2.50"> Süßkartoffel-Fries (2,50 €)</label><br>
+                    <label><input type="checkbox" name="side[]" value="2.30"> Curly-Fries (2,30 €)</label>
+                </div>
+            </div>
+        </div>
+        <!-- Saucen -->
+
+        <!-- Getränke -->
+        <div class="ingredient-group">
+            <div class="ingredient-group-title">
+                <h2>7. Getränke </h2>
+            </div>
+            <div class="ingredient-group-inhalt">
+                <label><input type="checkbox" name="drinks[]" value="1.50"> Cola (1,50 €)</label><br>
+                <label><input type="checkbox" name="drinks[]" value="1.50"> Fanta (1,50 €)</label><br>
+                <label><input type="checkbox" name="drinks[]" value="1.50"> Wasser (1,50 €)</label><br>
+                <label><input type="checkbox" name="drinks[]" value="2.00"> Hausgemachte Limo (2,00 €)</label>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Preis -->
+    <div class="price-display">
+        Gesamtpreis: <span id="totalPrice">0,00</span> €
+    </div>
+
+    <button type="submit">Bestellen</button>
+</form>
+
+
+<script src="burgerKonfiguration.js"></script>
+<script src="index.js"></script>
+<script src="registrieren.js"></script>
+<script src="anmelden.js" ></script>
+<script src="../the-burger-lab-swep-main/burger-app/server.js"></script>
+
+</body>
+</html>

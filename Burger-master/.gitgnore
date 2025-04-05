@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# IDE und Systemdateien
+.idea/
+.vscode/
+.DS_Store
+
+# Umgebungsvariablen
+.env
+
+# Build-/Output-Dateien
+dist/
+build/
+*.log

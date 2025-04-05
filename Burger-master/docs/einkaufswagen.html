@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Warenkorb – The Burger Lab</title>
+    <link rel="stylesheet" href="einkaufswagen.css">
+</head>
+<body>
+
+<h1> Dein Warenkorb</h1>
+
+<div class="cart-container">
+    <div class="cart-items">
+        <h3>Ausgewählte Zutaten:</h3>
+        <ul id="cartItems"></ul>
+    </div>
+
+    <div class="total">
+        Gesamtpreis: <span id="cartTotal">0,00</span> €
+    </div>
+
+    <div class="actions">
+        <a href="burgerKonfiguration.html"> Zurück</a>
+        <button onclick="completeOrder()"> Bestellung abschließen</button>
+    </div>
+</div>
+
+
+<script src="einkaufswagen.js"></script>
+</body>
+</html>

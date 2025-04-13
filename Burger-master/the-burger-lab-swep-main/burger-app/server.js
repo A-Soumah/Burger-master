@@ -219,7 +219,7 @@ app.get("/getHistory", async (req, res) => {
         res.status(500).json({ message: "Serverfehler" });
     }
 });
-const docsPath = path.join(__dirname, "../../../../../docs");
+const docsPath = path.join(__dirname, "docs");
 app.use(express.static(docsPath));
 
 app.get("/", (req, res) => {

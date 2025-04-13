@@ -87,10 +87,7 @@ app.post("/anmelden", async (req, res) => {
         if (anmeldePassword != user.password) {
             return res.status(400).json({ message: "Falsches Passwort!" });
         }
-        await usersCollection.updateOne(
-            { username: anmeldeUserName },
-            { $set: { anmeldestatus: "angemeldet" } }
-        );
+
 
         await usersCollection.updateOne(
             { username: anmeldeUserName },
@@ -112,30 +109,81 @@ app.post("/anmelden", async (req, res) => {
         res.status(500).json({ message: "Serverfehler" });
     }
 });
+app.post("/abmelden", async (req, res) => {
+    const { username } = req.body;
+
+    console.log("📤 Abmeldung erhalten für:", username); // Debug-Ausgabe
+
+    if (!username) {
+        return res.status(400).json({ message: "Username fehlt!" });
+    }
+
+    try {
+        const db = await dbPromise;
+        const usersCollection = db.collection("users");
+
+        const result = await usersCollection.updateOne(
+            { username },
+            { $set: { anmeldestatus: "abgemeldet" } }
+        );
+
+        if (result.modifiedCount === 1) {
+            res.json({ message: "Abmeldung erfolgreich!" });
+        } else {
+            res.status(404).json({ message: "Benutzer nicht gefunden!" });
+        }
+    } catch (error) {
+        console.error("❌ Fehler beim Abmelden:", error);
+        res.status(500).json({ message: "Serverfehler" });
+    }
+});
+
 app.post("/bestellhistorie", async (req, res) => {
     const { username, items, total } = req.body;
 
-    if (!username || !items || !total) {
-        return res.status(400).json({ message: "Alle Felder sind erforderlich!" });
+    if (!items || !total) {
+        return res.status(400).json({ message: "Items oder Preis fehlt!" });
     }
 
     try {
         const db = await dbPromise;
         const users = db.collection("users");
+        const essen = db.collection("essen");
+        const getraenke = db.collection("getraenke");
 
         const bestellung = {
             order_id: new Date().getTime(),
             items,
             total_price: parseFloat(total.replace(',', '.')),
-            date: new Date()
+            date: new Date(),
+            anmeldestatus: username ? "angemeldet" : "nicht angemeldet"
         };
 
-        await users.updateOne(
-            { username: username },
-            { $push: { order_history: bestellung } }
-        );
+        if (username) {
+            await users.updateOne(
+                { username },
+                { $push: { order_history: bestellung } }
+            );
+        }
 
-        res.json({ message: "Bestellung erfolgreich gespeichert!" });
+        for (const zutat of items) {
+            const zutatName = (typeof zutat === "string" ? zutat : zutat.name)?.split(" (")[0].trim();
+
+            const result = await essen.updateOne(
+                { name: zutatName, bestand: { $gt: 0 } },
+                { $inc: { bestand: -1 } }
+            );
+
+            if (result.matchedCount === 0) {
+                await getraenke.updateOne(
+                    { name: zutatName, bestand: { $gt: 0 } },
+                    { $inc: { bestand: -1 } }
+                );
+            }
+        }
+
+        res.json({ message: username ? "Bestellung gespeichert & Bestand aktualisiert!" : "Bestellung (anonym) verarbeitet & Bestand aktualisiert!" });
+
     } catch (err) {
         console.error("❌ Fehler beim Speichern:", err);
         res.status(500).json({ message: "Serverfehler" });
@@ -167,6 +215,7 @@ app.get("/getHistory", async (req, res) => {
         res.status(500).json({ message: "Serverfehler" });
     }
 });
+
 app.listen(PORT, () => {
     console.log(` Server läuft auf http://localhost:${PORT}`);
 });

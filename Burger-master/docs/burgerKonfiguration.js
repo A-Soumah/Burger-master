@@ -18,6 +18,19 @@ form.addEventListener('change', () => {
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // ✅ GK100: Pflichtfelder prüfen
+    const brotGewählt = form.querySelector('input[name="brot"]:checked');
+    const pattyGewählt = form.querySelector('input[name="patty"]:checked');
+
+    if (!brotGewählt) {
+        alert("⚠️ Bitte wähle ein Brot aus!");
+        return;
+    }
+    if (!pattyGewählt) {
+        alert("⚠️ Bitte wähle ein Patty aus!");
+        return;
+    }
+
     let selected = [];
     const checked = form.querySelectorAll("input:checked, input[type='radio']:checked");
     checked.forEach(input => {
@@ -32,4 +45,13 @@ form.addEventListener("submit", function (e) {
 
     // Weiterleitung zum Warenkorb
     window.location.href = "Einkaufswagen.html";
+});
+const resetBtn = document.getElementById("resetBtn");
+
+resetBtn.addEventListener("click", () => {
+    // Alle ausgewählten Optionen des Formulars zurücksetzen
+    form.reset();
+
+    // Preis auf 0 setzen
+    totalPriceSpan.textContent = "0,00";
 });

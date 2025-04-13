@@ -49,7 +49,9 @@ body {
 .user-menu {
     position: relative;
 }
-
+#letzteSpalte{
+    display: flex;
+}
 .user-menu .dropdown {
     display: none;
     position: absolute;
@@ -99,6 +101,15 @@ body {
     list-style: none;
     margin: -3rem 0 0 0;
     padding: 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    text-align: center;         /* <-- Neu */
+    display: block;             /* <-- Neu: nötig für text-align */
+    white-space: normal;        /* <-- falls der Text umbrechen soll */
+    padding: 0 10px;            /* optional für bisschen Seitenabstand */
 }
 
 .navbar ul li {
@@ -337,6 +348,116 @@ button {
 }
 #anmeldeModal{
 }
+.price-display{
+    display: flex;
+}
+.footerColumn h3 {
+    font-family: "Bowlby One SC", serif;
+    font-weight: 100;
+    color: #DAD7CD;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footerColumn p {
+    font-family: "Bowlby One SC", serif;
+    color: #DAD7CD;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footerColumn {
+    text-align: left;
+}
+
+.footerColumn:not(:first-child) h3,
+.footerColumn:not(:first-child) p {
+    text-align: left;
+}
+.opening-contact-container .footerColumn p {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.5;
+    color: #DAD7CD;
+    font-family: "Bowlby One SC", serif;
+    margin-bottom: 0;
+}
+
+.opening-contact-container .footerColumn {
+    width: auto;
+    text-align: left;
+}
+
+
+.BürgerReihe-Komponente {
+    position: relative;
+    overflow: visible;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 10;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    white-space: normal;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 250px;
+    text-align: center;
+}
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.BürgerReihe-Komponente:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+
+@media (max-width: 768px) {
+    .tooltip {
+        bottom: auto;
+        top: 110%;
+    }
+
+    .tooltip::after {
+        top: auto;
+        bottom: 100%;
+        border-color: transparent transparent black transparent;
+    }
+}
+
+@media (min-width: 769px) {
+    .footerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 80%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
 
 @media (max-width: 768px) {
 .nav{padding-right: 0}
@@ -381,3 +502,4 @@ button {
     }
 
 }
+

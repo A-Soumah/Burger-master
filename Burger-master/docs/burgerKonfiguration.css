@@ -85,3 +85,19 @@ button {
 .ingredient-group-inhalt{
     margin-top: 20px;
 }
+
+#resetBtn{
+    margin-bottom: 20px;
+}
+#anordnungButtons{
+    display: flex;
+    flex-direction: column;
+
+}
+button{
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+#gesamtpreisDiv{
+    color: #DAD7CD;
+}

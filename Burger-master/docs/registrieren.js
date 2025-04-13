@@ -1,18 +1,34 @@
-document.getElementById("registerForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Verhindert das Neuladen der Seite
+// Öffnet das Registrier-Modal (funktioniert für alle .fa-user-plus Icons)
+document.querySelectorAll(".fa-user-plus").forEach(icon => {
+    icon.addEventListener("click", () => {
+        document.querySelector(".modal")?.style.setProperty("visibility", "visible");
 
-    // Eingabedaten aus dem Formular holen
+        // Sidebar automatisch schließen (optional)
+        const sidebar = document.querySelector(".sidebar");
+        if (sidebar) {
+            sidebar.style.visibility = "hidden";
+            sidebar.style.opacity = "0";
+        }
+    });
+});
+
+// Registrierung abschicken
+document.getElementById("registerForm")?.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
     const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    // Daten an den Server senden
     const response = await fetch("http://localhost:5000/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password,anmeldestatus })
+        body: JSON.stringify({ username, email, password })
     });
 
     const data = await response.json();
-    alert(data.message); // Meldung anzeigen
+    alert(data.message);
+
+    // Nach erfolgreicher Registrierung schließen (optional)
+    document.querySelector(".modal")?.style.setProperty("visibility", "hidden");
 });

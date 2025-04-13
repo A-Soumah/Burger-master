@@ -53,3 +53,14 @@ h1 {
 .actions a:hover, .actions button:hover {
     background: #2c522c;
 }
+.konfig-burger {
+    list-style: disc;
+    margin: 0.5rem 0 1rem 1.2rem;
+    padding: 0;
+    font-style: italic;
+}
+.konfig-burger li em {
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+}

@@ -1,4 +1,3 @@
-// bestellhistorie.js
 const username = localStorage.getItem("username");
 
 if (!username) {
@@ -19,12 +18,35 @@ async function ladeHistorie() {
 
     data.forEach(order => {
         const li = document.createElement("li");
+
+        // Erzeuge Liste der Zutaten
+        const zutatenListe = document.createElement("ul");
+
+        order.items.forEach(item => {
+            const eintrag = document.createElement("li");
+
+            if (typeof item === "string") {
+                eintrag.textContent = item;
+            } else if (item.name && item.preis !== undefined) {
+                // Preis vorhanden
+                const preis = item.preis !== null ? `${item.preis.toFixed(2).replace('.', ',')} €` : "(konfiguriert)";
+                eintrag.textContent = `🍔 ${item.name} – ${preis}`;
+            } else if (item.name) {
+                eintrag.textContent = `🍔 ${item.name}`;
+            } else {
+                eintrag.textContent = JSON.stringify(item);
+            }
+
+            zutatenListe.appendChild(eintrag);
+        });
+
+        // Gesamte Bestellung einfügen
         li.innerHTML = `
-      <strong>Datum:</strong> ${new Date(order.date).toLocaleString()}<br>
-      <strong>Preis:</strong> ${order.total_price.toFixed(2)} €<br>
-      <strong>Zutaten:</strong><br>
-      <ul>${order.items.map(item => `<li>${item}</li>`).join("")}</ul>
-    `;
+            <strong>Datum:</strong> ${new Date(order.date).toLocaleString()}<br>
+            <strong>Preis:</strong> ${order.total_price.toFixed(2)} €<br>
+            <strong>Zutaten:</strong>
+        `;
+        li.appendChild(zutatenListe);
         orderList.appendChild(li);
     });
 }

@@ -203,28 +203,37 @@
             </div>
         </div>
         <!-- Saucen -->
+        <div id="letzteSpalte">
+            <div class="ingredient-group">
+                <div class="ingredient-group-title">
+                    <h2>7. Getränke </h2>
+                </div>
+                <div class="ingredient-group-inhalt">
+                    <label><input type="checkbox" name="drinks[]" value="1.50"> Cola (1,50 €)</label><br>
+                    <label><input type="checkbox" name="drinks[]" value="1.50"> Fanta (1,50 €)</label><br>
+                    <label><input type="checkbox" name="drinks[]" value="1.50"> Wasser (1,50 €)</label><br>
+                    <label><input type="checkbox" name="drinks[]" value="2.00"> Hausgemachte Limo (2,00 €)</label>
+                </div>
+            </div>
 
-        <!-- Getränke -->
-        <div class="ingredient-group">
-            <div class="ingredient-group-title">
-                <h2>7. Getränke </h2>
-            </div>
-            <div class="ingredient-group-inhalt">
-                <label><input type="checkbox" name="drinks[]" value="1.50"> Cola (1,50 €)</label><br>
-                <label><input type="checkbox" name="drinks[]" value="1.50"> Fanta (1,50 €)</label><br>
-                <label><input type="checkbox" name="drinks[]" value="1.50"> Wasser (1,50 €)</label><br>
-                <label><input type="checkbox" name="drinks[]" value="2.00"> Hausgemachte Limo (2,00 €)</label>
-            </div>
+                <div class="price-display">
+                    <div id="anordnungButtons">
+                        <button type="submit">Bestellen</button>
+                        <button type="button" id="resetBtn">Zurücksetzen</button>
+                    </div>
+                    <div id="gesamtpreisDiv">
+                        Gesamtpreis: <span id="totalPrice">0,00</span> €
+                    </div>
+
+
+                </div>
         </div>
+        <!-- Getränke -->
     </div>
 
 
     <!-- Preis -->
-    <div class="price-display">
-        Gesamtpreis: <span id="totalPrice">0,00</span> €
-    </div>
 
-    <button type="submit">Bestellen</button>
 </form>
 
 

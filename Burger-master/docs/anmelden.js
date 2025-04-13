@@ -1,31 +1,81 @@
-let anmeldestatus =""
-let responsdata=""
-document.getElementById("anmelderegisterForm").addEventListener("submit", async function(event)  {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    let anmeldestatus = "";
+    let responsdata = "";
 
-    let anmeldeUserName=document.getElementById("anmeldeUsername").value;
-    let anmeldePassword=document.getElementById("anmeldePassword").value;
-
-    const response = await fetch("http://localhost:5000/anmelden", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ anmeldeUserName,  anmeldePassword })
+    // Anmelden
+    document.querySelectorAll(".anmeldeParagraf").forEach(el => {
+        el.addEventListener("click", () => {
+            document.getElementById("anmeldeModal").style.visibility = "visible";
+        });
     });
+    const form = document.getElementById("anmelderegisterForm");
+    if (form) {
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-    const data = await response.json();
-    localStorage.setItem("username", data.username);
-    localStorage.setItem("anmeldestatus", data.anmeldestatus);
+            const anmeldeUserName = document.getElementById("anmeldeUsername").value;
+            const anmeldePassword = document.getElementById("anmeldePassword").value;
 
-    responsdata=data.message;
-    anmeldestatus=data.anmeldestatus
+            try {
+                const response = await fetch("http://localhost:5000/anmelden", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ anmeldeUserName, anmeldePassword }),
+                });
 
-    if (data.anmeldestatus === "angemeldet") {
-        alert("✅ Anmeldung erfolgreich!");
-    } else {
-        alert("❌ Anmeldung fehlgeschlagen!");
+                const data = await response.json();
+
+                // alten Login löschen
+                localStorage.removeItem("username");
+                localStorage.removeItem("anmeldestatus");
+
+                // speichern
+                if (response.ok) {
+                    localStorage.setItem("username", data.username);
+                    localStorage.setItem("anmeldestatus", data.anmeldestatus);
+
+                    responsdata = data.message;
+                    anmeldestatus = data.anmeldestatus;
+
+                    alert("✅ Anmeldung erfolgreich!");
+                    window.location.reload(); // optional neu laden
+                } else {
+                    alert(data.message || "Anmeldung fehlgeschlagen!");
+                }
+            } catch (err) {
+                console.error("Fehler beim Anmelden:", err);
+                alert("Fehler bei der Verbindung zum Server.");
+            }
+        });
     }
 
+    // Abmelden
+    // ALLE Abmelde-Buttons abfangen (auch Sidebar etc.)
+    document.querySelectorAll(".abmeldeParagraf").forEach(button => {
+        button.addEventListener("click", async () => {
+            const username = localStorage.getItem("username");
+            if (!username) return;
+
+            try {
+                const res = await fetch("http://localhost:5000/abmelden", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username }),
+                });
+
+                const data = await res.json();
+                console.log("Antwort vom Server:", data);
+
+                localStorage.removeItem("username");
+                localStorage.removeItem("anmeldestatus");
+
+                alert("Du wurdest abgemeldet!");
+                window.location.reload();
+            } catch (err) {
+                console.error("Fehler beim Abmelden:", err);
+                alert("Abmeldung fehlgeschlagen!");
+            }
+        });
+    });
 
 });
-
-

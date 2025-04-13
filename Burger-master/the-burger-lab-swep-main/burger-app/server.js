@@ -219,11 +219,13 @@ app.get("/getHistory", async (req, res) => {
         res.status(500).json({ message: "Serverfehler" });
     }
 });
-app.use(express.static(path.join(__dirname, "../../../docs")));
+const docsPath = path.join(__dirname, "../../../../../docs");
+app.use(express.static(docsPath));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../../docs/index.html"));
+    res.sendFile(path.join(docsPath, "index.html"));
 });
+
 
 
 app.listen(PORT, () => {

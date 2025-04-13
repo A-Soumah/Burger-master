@@ -15,7 +15,7 @@ body {
 
 }
 .obere-Hälfte{
-    background-image: url("../../images2/background_page2.jpg");
+    background-image: url("images2/background_page2.jpg");
     height: 200vh;
     width: 100%;
     background-attachment: fixed;
@@ -466,7 +466,7 @@ button {
     }
 
     body{
-        background-image: url("../../images2/background_page2.jpg");
+        background-image: url("images2/background_page2.jpg");
         height: 100vh;
         width: 100%;
         background-attachment: fixed;

@@ -226,6 +226,8 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(docsPath, "index.html"));
 });
 
+const imagesPath = path.join(__dirname, "images2");
+app.use("/images2", express.static(imagesPath));
 
 
 app.listen(PORT, () => {

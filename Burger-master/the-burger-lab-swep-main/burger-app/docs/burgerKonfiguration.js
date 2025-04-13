@@ -44,7 +44,7 @@ form.addEventListener("submit", function (e) {
     localStorage.setItem("burgerTotal", total);
 
     // Weiterleitung zum Warenkorb
-    window.location.href = "Einkaufswagen.html";
+    window.location.href = "einkaufswagen.html";
 });
 const resetBtn = document.getElementById("resetBtn");
 

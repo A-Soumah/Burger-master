@@ -1,3 +1,5 @@
+const path = require("path");
+
 require("dotenv").config(); // Umgebungsvariablen laden
 const express = require("express");
 const cors = require("cors");
@@ -11,6 +13,8 @@ const MONGO_URI = process.env.MONGO_URI;
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+
 
 // Datenbankverbindung
 async function connectDB() {
@@ -214,6 +218,13 @@ app.get("/getHistory", async (req, res) => {
         console.error("❌ Fehler beim Laden der Bestellhistorie:", err);
         res.status(500).json({ message: "Serverfehler" });
     }
+});
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "../../../docs")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../../docs/index.html"));
 });
 
 app.listen(PORT, () => {

@@ -75,7 +75,7 @@ async function completeOrder() {
     const total = cartTotal.textContent;
 
     try {
-        const response = await fetch("http://localhost:5000/bestellhistorie", {
+        const response = await fetch("https://the-burger-lab.onrender.com/bestellhistorie", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, items, total })

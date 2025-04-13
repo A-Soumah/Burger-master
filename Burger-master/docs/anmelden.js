@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const anmeldePassword = document.getElementById("anmeldePassword").value;
 
             try {
-                const response = await fetch("http://localhost:5000/anmelden", {
+                const response = await fetch("https://the-burger-lab.onrender.com/anmelden", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ anmeldeUserName, anmeldePassword }),
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!username) return;
 
             try {
-                const res = await fetch("http://localhost:5000/abmelden", {
+                const res = await fetch("https://the-burger-lab.onrender.com/abmelden", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ username }),

@@ -6,7 +6,7 @@ if (!username) {
 }
 
 async function ladeHistorie() {
-    const response = await fetch(`http://localhost:5000/getHistory?username=${username}`);
+    const response = await fetch(`https://the-burger-lab.onrender.com/getHistory?username=${username}`);
     const data = await response.json();
 
     const orderList = document.getElementById("orderList");

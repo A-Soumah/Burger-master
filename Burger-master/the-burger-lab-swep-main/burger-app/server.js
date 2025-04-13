@@ -221,11 +221,12 @@ app.get("/getHistory", async (req, res) => {
 });
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, "../../../docs")));
+app.use(express.static(path.join(__dirname, "../../docs")));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../../../docs/index.html"));
+    res.sendFile(path.join(__dirname, "../../docs/index.html"));
 });
+
 
 app.listen(PORT, () => {
     console.log(` Server läuft auf http://localhost:${PORT}`);

@@ -474,6 +474,7 @@ button {
         max-width: 1200px;
         margin: 0 auto;
     }
+
 }
 
 @media (max-width: 1000px) {
@@ -504,6 +505,26 @@ button {
         display: flex;
         flex-direction: column;
     }
+    .dropdown{
+        left: 50px;
+    }
+    @media (max-width: 1000px) {
+        .sidebar .user-menu {
+            position: relative;
+            width: 100%;
+        }
+
+        .sidebar .user-menu .dropdown {
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 1rem;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    }
+
 }
 @media (max-width: 448px) {
 

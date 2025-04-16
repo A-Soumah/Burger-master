@@ -52,7 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         item.addEventListener('touchstart', function (event) {
-            event.preventDefault();
+            // Verhindere Tooltip-Aktivierung, wenn ein Button berührt wird
+            if (event.target.closest(".button-Komponente")) {
+                return; // nicht Tooltip öffnen, wenn Button gedrückt wurde
+            }
+
             const description = this.querySelector('.tooltip').getAttribute('data-description');
             this.querySelector('.tooltip').textContent = description;
             this.classList.toggle('tooltip-active');

@@ -8,10 +8,14 @@
     /*background-color: #2D2D2D;*/
     /*font-family: "Bowlby One SC", serif;*/
 }
-
+html, body {
+    overflow-x: hidden;
+}
 
 body {
     background-color: #2D2D2D;
+
+
 
 }
 .obere-Hälfte{
@@ -229,23 +233,24 @@ body {
     cursor: pointer;
     padding-right: 20px;
 }
-.sidebar{
-    width: 250px;
-    height: 100vh;
+.sidebar {
+    position: fixed;
     top: 0;
+    right: -100vw; /* 👈 außerhalb des Bildschirms */
+    width: 40%;
+    height: 100vh;
     background: #222;
     color: white;
-    position: fixed;
-    right: 0;
-    visibility: hidden;
-    z-index: 3;
-    opacity: 0;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 40px 0;
-
+    transition: right 0.3s ease;
+}
+.sidebar.visible {
+    right: 0; /* 👈 sichtbar reinfahren */
 }
 .sidebar ul{
     display: flex;

@@ -241,7 +241,7 @@ body {
     position: fixed;
     top: 0;
     right: -100vw; /* 👈 außerhalb des Bildschirms */
-    width: 55%;
+    width: 60%;
     height: 100vh;
     background: #222;
     color: white;

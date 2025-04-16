@@ -20,7 +20,7 @@ body {
 }
 .obere-Hälfte{
     background-image: url("images2/background_page2.jpg");
-    height: 200vh;
+    min-height: 100vh;
     width: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -193,10 +193,12 @@ body {
 .BürgerReihe{
     display: flex;
     justify-content: space-between;
-    padding-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     z-index: 1;
     opacity: 1;
     position: relative;
+
 
 }
 .BürgerReihe-Komponente{
@@ -205,6 +207,8 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #2D2D2D;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
 
 }
@@ -217,7 +221,7 @@ body {
     margin-bottom: 5px;
 }
 .button-Komponente{
-    width: 120px;
+    width: 100px;
     background-color: #344E41;
     color: #FFFFFF;
     font-weight: bold;
@@ -237,7 +241,7 @@ body {
     position: fixed;
     top: 0;
     right: -100vw; /* 👈 außerhalb des Bildschirms */
-    width: 40%;
+    width: 55%;
     height: 100vh;
     background: #222;
     color: white;
@@ -248,6 +252,10 @@ body {
     align-items: center;
     padding: 40px 0;
     transition: right 0.3s ease;
+           /* ⬅ Erlaubt Zeilenumbruch */
+        /* ⬅ Bricht lange Wörter */
+    text-align: center;        /* ⬅ Optional: zentriert den Text */
+    padding: 0 15px;           /* ⬅ Etwas Innenabstand */
 }
 .sidebar.visible {
     right: 0; /* 👈 sichtbar reinfahren */
@@ -421,6 +429,10 @@ button {
     max-width: 250px;
     text-align: center;
 }
+.BürgerReihe-Komponente img{
+    height: 60px;
+}
+
 .tooltip::after {
     content: "";
     position: absolute;
@@ -464,7 +476,7 @@ button {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 .nav{padding-right: 0}
 .navbar{
         display: none;
@@ -504,6 +516,33 @@ button {
     }
     #obereHälfte-rechteSeite{
         padding-top: 2vh;
+
+    }
+
+    .headerText h1 {
+        font-size: 2.5rem;
+    }
+
+    .headerText h2 {
+        font-size: 1.2rem;
+    }
+
+    .paragrafText p {
+        font-size: 0.9rem;
+    }
+
+    .BürgerReihe-Komponente h2 {
+        font-size: 0.7rem;
+    }
+
+    .button-Komponente {
+        font-size: 0.8rem;
+        width: 100px;
+    }
+
+    /* evtl. auch das Logo etwas kleiner machen */
+    .logo img {
+        width: 100px;
     }
 
 }

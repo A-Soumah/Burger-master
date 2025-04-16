@@ -4,21 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über uns - The Burger Lab</title>
+
     <link rel="stylesheet" href="ueberUns.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/07fa2949b9.js" crossorigin="anonymous"></script>
+    <style>
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -100vw;
+            width: 60%;
+            height: 100vh;
+            background-color: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        .sidebar.visible {
+            right: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 1rem 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .burger-menu {
+            display: block;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .burger-menu {
+                display: none;
+            }
+            }
+        @media(max-width: 767px){
+            .nav-links{
+                display: none;
+            }
+        }
+
+    </style>
 </head>
 <body>
 <header class="navbar">
     <div class="navbar-container">
         <img src="images2/logo-light.png" alt="The Burger Lab Logo" class="logo">
+        <div class="burger-menu" id="burgerMenu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Startseite</a></li>
-            <li><a href="index.html">Menü</a></li>
+            <li><a href="menu.html">Menü</a></li>
             <li><a href="burgerKonfiguration.html">Burger konfigurieren</a></li>
             <li><a href="aboutUs.html" class="active">Über uns</a></li>
         </ul>
     </div>
 </header>
+
+<div class="sidebar" id="sidebar">
+    <div class="close-btn" id="closeSidebar"><i class="fa-solid fa-xmark"></i></div>
+    <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="menu.html">Menü</a></li>
+        <li><a href="burgerKonfiguration.html">Burger konfigurieren</a></li>
+        <li><a href="aboutUs.html">Über uns</a></li>
+    </ul>
+</div>
 
 <main class="content">
     <div class="text-box">
@@ -56,5 +126,19 @@
         </div>
     </div>
 </footer>
+
+<script>
+    const burgerMenu = document.getElementById("burgerMenu");
+    const sidebar = document.getElementById("sidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    burgerMenu.addEventListener("click", () => {
+        sidebar.classList.add("visible");
+    });
+
+    closeSidebar.addEventListener("click", () => {
+        sidebar.classList.remove("visible");
+    });
+</script>
 </body>
 </html>

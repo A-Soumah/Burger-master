@@ -42,17 +42,20 @@ button {
     display: flex;
     flex-direction: column;
 
+
 }
 #ingredient-group-top{
     display: flex;
     justify-content: space-between;
     margin-bottom: 3rem;
+
 }
 
 #ingredient-group-bottom{
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+
 }
 .ingredient-group{
     background-color:rgba(255, 255, 255, 0.5);
@@ -100,4 +103,26 @@ button{
 }
 #gesamtpreisDiv{
     color: #DAD7CD;
+}
+@media  (max-width: 1000px) {
+    #ingredient-group-top{
+        flex-direction: column;
+        align-items: center;
+    }
+    #ingredient-group-bottom{
+        flex-direction: column;
+        align-items: center;
+    }
+    #letzteSpalte{
+        flex-direction: column;
+        align-items: center;
+    }
+    .price-display{
+        flex-direction: column;
+        align-items: center;
+    }
+    .ingredient-group{
+        margin-bottom: 50px;
+    }
+
 }
